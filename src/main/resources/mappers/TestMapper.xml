@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.zq.mapper.TestMapper">
+  <resultMap id="BaseResultMap" type="com.springboot.zq.pojo.Test">
+    <result column="列_name" jdbcType="INTEGER" property="列Name" />
+  </resultMap>
+  <insert id="insert" parameterType="com.springboot.zq.pojo.Test">
+    insert into test (列_name)
+    values (#{列Name,jdbcType=INTEGER})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select 列_name
+    from test
+  </select>
+</mapper>
