@@ -1,26 +1,38 @@
 package com.springboot.zq.pojo;
 
+import lombok.AllArgsConstructor;
 import lombok.ToString;
 
 @ToString
+@AllArgsConstructor
 public class Category {
-    private String contentId;
+    private Integer categoryId;
 
-    private String contentName;
+    private String categoryName;
 
-    public String getContentId() {
-        return contentId;
+    private Integer parentId;
+
+    public Integer getCategoryId() {
+        return categoryId;
     }
 
-    public void setContentId(String contentId) {
-        this.contentId = contentId == null ? null : contentId.trim();
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public String getContentName() {
-        return contentName;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setContentName(String contentName) {
-        this.contentName = contentName == null ? null : contentName.trim();
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName == null ? null : categoryName.trim();
+    }
+
+    public Integer getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
     }
 }

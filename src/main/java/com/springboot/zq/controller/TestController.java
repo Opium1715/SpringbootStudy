@@ -62,9 +62,4 @@ public class TestController {
         return 5/0;
     }
 
-    @GetMapping("/category")
-    public List<Category> displayCategory(){
-        log.info("开始查询");
-       return categoryService.getAllCategory(1).getList();
-    }
 }

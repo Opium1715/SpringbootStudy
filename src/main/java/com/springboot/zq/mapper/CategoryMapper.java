@@ -7,15 +7,15 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 @Mapper
 public interface CategoryMapper {
-    int deleteByPrimaryKey(String contentId);
+    int deleteByPrimaryKey(Integer categoryId);
 
     int insert(Category record);
 
-    Category selectByPrimaryKey(String contentId);
+    Category selectByPrimaryKey(Integer categoryId);
 
     List<Category> selectAll();
-    @Select("select * from category")
-    List<Category> selectAllByAnnotation();
 
     int updateByPrimaryKey(Category record);
+    @Select("select * from category where parent_id = 0")
+    List<Category> selectParentCategory();
 }

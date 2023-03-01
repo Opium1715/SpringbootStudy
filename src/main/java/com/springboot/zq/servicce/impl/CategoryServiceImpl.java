@@ -14,21 +14,19 @@ import java.util.List;
 @Slf4j
 @Service
 public class CategoryServiceImpl implements CategoryService {
-    @Autowired
-    CategoryMapper categoryMapper;
+   @Autowired
+   CategoryMapper categoryMapper;
 
     @Override
     public PageInfo<Category> getAllCategory(Integer pageNo) {
-        PageHelper.startPage(pageNo,10);
+        PageHelper.startPage(pageNo,20);
         List<Category> categoryList = categoryMapper.selectAll();
         log.info(categoryList.toString());
         return new PageInfo<>(categoryList);
     }
-
-    public PageInfo<Category> getAllbyAnnotation(Integer pageNo){
-        PageHelper.startPage(pageNo,8);
-        List<Category> categoryList = categoryMapper.selectAllByAnnotation();
-        log.info("通过注解Mapper方式获取数据");
-        return new PageInfo<>(categoryList);
+    @Override
+    public List<Category> getCategoryParent(){
+        return categoryMapper.selectParentCategory();
     }
+
 }
