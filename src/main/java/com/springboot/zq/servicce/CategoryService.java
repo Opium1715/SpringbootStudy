@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface CategoryService {
-    public PageInfo<Category> getAllCategory(Integer pageNo);
-
+    PageInfo<Category> getAllCategory(Integer pageNo);
+    PageInfo<Category> getAllbyAnnotation(Integer pageNo);
 }

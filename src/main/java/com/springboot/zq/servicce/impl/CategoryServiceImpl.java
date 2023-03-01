@@ -1,6 +1,5 @@
 package com.springboot.zq.servicce.impl;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.springboot.zq.mapper.CategoryMapper;
@@ -23,6 +22,13 @@ public class CategoryServiceImpl implements CategoryService {
         PageHelper.startPage(pageNo,10);
         List<Category> categoryList = categoryMapper.selectAll();
         log.info(categoryList.toString());
+        return new PageInfo<>(categoryList);
+    }
+
+    public PageInfo<Category> getAllbyAnnotation(Integer pageNo){
+        PageHelper.startPage(pageNo,8);
+        List<Category> categoryList = categoryMapper.selectAllByAnnotation();
+        log.info("通过注解Mapper方式获取数据");
         return new PageInfo<>(categoryList);
     }
 }
