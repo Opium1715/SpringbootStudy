@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.zq.mapper.OrderitemMapper">
+  <resultMap id="BaseResultMap" type="com.springboot.zq.pojo.Orderitem">
+    <id column="orderdetail_id" jdbcType="INTEGER" property="orderdetailId" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="orderdetail_pnum" jdbcType="INTEGER" property="orderdetailPnum" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from orderitem
+    where orderdetail_id = #{orderdetailId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.springboot.zq.pojo.Orderitem">
+    insert into orderitem (orderdetail_id, product_id, order_id, 
+      orderdetail_pnum)
+    values (#{orderdetailId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, #{orderId,jdbcType=INTEGER}, 
+      #{orderdetailPnum,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.springboot.zq.pojo.Orderitem">
+    update orderitem
+    set product_id = #{productId,jdbcType=INTEGER},
+      order_id = #{orderId,jdbcType=INTEGER},
+      orderdetail_pnum = #{orderdetailPnum,jdbcType=INTEGER}
+    where orderdetail_id = #{orderdetailId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select orderdetail_id, product_id, order_id, orderdetail_pnum
+    from orderitem
+    where orderdetail_id = #{orderdetailId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select orderdetail_id, product_id, order_id, orderdetail_pnum
+    from orderitem
+  </select>
+</mapper>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.zq.mapper.MerchantMapper">
+  <resultMap id="BaseResultMap" type="com.springboot.zq.pojo.Merchant">
+    <id column="merc_id" jdbcType="INTEGER" property="mercId" />
+    <result column="merc_name" jdbcType="VARCHAR" property="mercName" />
+    <result column="merc_address" jdbcType="VARCHAR" property="mercAddress" />
+    <result column="merc_password" jdbcType="VARCHAR" property="mercPassword" />
+    <result column="merc_email" jdbcType="VARCHAR" property="mercEmail" />
+    <result column="merc_phone" jdbcType="VARCHAR" property="mercPhone" />
+    <result column="merc_proxy" jdbcType="VARCHAR" property="mercProxy" />
+    <result column="merc_img" jdbcType="VARCHAR" property="mercImg" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from merchant
+    where merc_id = #{mercId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.springboot.zq.pojo.Merchant">
+    insert into merchant (merc_id, merc_name, merc_address, 
+      merc_password, merc_email, merc_phone, 
+      merc_proxy, merc_img)
+    values (#{mercId,jdbcType=INTEGER}, #{mercName,jdbcType=VARCHAR}, #{mercAddress,jdbcType=VARCHAR}, 
+      #{mercPassword,jdbcType=VARCHAR}, #{mercEmail,jdbcType=VARCHAR}, #{mercPhone,jdbcType=VARCHAR}, 
+      #{mercProxy,jdbcType=VARCHAR}, #{mercImg,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.springboot.zq.pojo.Merchant">
+    update merchant
+    set merc_name = #{mercName,jdbcType=VARCHAR},
+      merc_address = #{mercAddress,jdbcType=VARCHAR},
+      merc_password = #{mercPassword,jdbcType=VARCHAR},
+      merc_email = #{mercEmail,jdbcType=VARCHAR},
+      merc_phone = #{mercPhone,jdbcType=VARCHAR},
+      merc_proxy = #{mercProxy,jdbcType=VARCHAR},
+      merc_img = #{mercImg,jdbcType=VARCHAR}
+    where merc_id = #{mercId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select merc_id, merc_name, merc_address, merc_password, merc_email, merc_phone, merc_proxy, 
+    merc_img
+    from merchant
+    where merc_id = #{mercId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select merc_id, merc_name, merc_address, merc_password, merc_email, merc_phone, merc_proxy, 
+    merc_img
+    from merchant
+  </select>
+</mapper>

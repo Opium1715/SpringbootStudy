@@ -1,27 +1,33 @@
 package com.springboot.zq.pojo;
 
-import lombok.*;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
-@Data
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode
-@Component
-
-//@ConfigurationProperties(prefix = "name")可以按照前缀.属性注入数值
-@ConfigurationProperties(prefix = "user1")
 public class User {
-    private Integer no;
-    private  String name;
+    private Integer userId;
 
-    private String PassWord;
+    private String userName;
 
-    public User(Integer no, String passWord) {
-        this.no = no;
-        PassWord = passWord;
+    private String userPassword;
+
+    public Integer getUserId() {
+        return userId;
     }
 
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword == null ? null : userPassword.trim();
+    }
 }

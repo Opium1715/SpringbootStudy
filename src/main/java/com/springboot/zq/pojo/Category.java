@@ -1,10 +1,5 @@
 package com.springboot.zq.pojo;
 
-import lombok.AllArgsConstructor;
-import lombok.ToString;
-
-@ToString
-@AllArgsConstructor
 public class Category {
     private Integer categoryId;
 

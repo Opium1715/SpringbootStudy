@@ -2,13 +2,9 @@ package com.springboot.zq.controller;
 
 import com.springboot.zq.pojo.User;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +22,7 @@ public class LoginController {
     public ModelAndView login(User user, HttpServletRequest request){
         /*String ID = (String) loginModel.getAttribute("ID");
         String PassWord = (String) loginModel.getAttribute("PassWord");*/
-        log.info("账号和密码是： "+user.getNo()+" "+user.getPassWord());
+        /*log.info("账号和密码是： "+user.getNo()+" "+user.getPassWord());*/
         HttpSession session = request.getSession();
         session.setAttribute("User",user);
         //重定向到index

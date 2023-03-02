@@ -30,6 +30,5 @@
   <select id="selectAll" resultMap="BaseResultMap">
     select category_id, category_name, parent_id
     from category
-    where parent_id != 0
   </select>
 </mapper>

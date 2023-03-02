@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.zq.mapper.CartitemMapper">
+  <resultMap id="BaseResultMap" type="com.springboot.zq.pojo.Cartitem">
+    <id column="cartitem_id" jdbcType="INTEGER" property="cartitemId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="cartitem_pnum" jdbcType="INTEGER" property="cartitemPnum" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cartitem
+    where cartitem_id = #{cartitemId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.springboot.zq.pojo.Cartitem">
+    insert into cartitem (cartitem_id, user_id, product_id, 
+      cartitem_pnum)
+    values (#{cartitemId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, 
+      #{cartitemPnum,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.springboot.zq.pojo.Cartitem">
+    update cartitem
+    set user_id = #{userId,jdbcType=INTEGER},
+      product_id = #{productId,jdbcType=INTEGER},
+      cartitem_pnum = #{cartitemPnum,jdbcType=INTEGER}
+    where cartitem_id = #{cartitemId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select cartitem_id, user_id, product_id, cartitem_pnum
+    from cartitem
+    where cartitem_id = #{cartitemId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select cartitem_id, user_id, product_id, cartitem_pnum
+    from cartitem
+  </select>
+</mapper>
