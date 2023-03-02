@@ -1,7 +1,9 @@
 package com.springboot.zq.pojo;
 
-import java.math.BigDecimal;
+import lombok.ToString;
 
+import java.math.BigDecimal;
+@ToString
 public class Product {
     private Integer productId;
 
@@ -16,6 +18,12 @@ public class Product {
     private Integer mercId;
 
     private Integer productStock;
+
+    private Merchant merchant;
+
+    private Category category;
+
+
 
     public Integer getProductId() {
         return productId;
