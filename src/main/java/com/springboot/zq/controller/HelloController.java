@@ -1,16 +1,13 @@
 package com.springboot.zq.controller;
 
-import com.springboot.zq.pojo.User;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Slf4j
+/*@Slf4j
 @RestController
 public class HelloController {
 //    @Autowired
@@ -50,4 +47,4 @@ public class HelloController {
         return new ModelAndView("test","user",user);
     }
 
-}
+}*/

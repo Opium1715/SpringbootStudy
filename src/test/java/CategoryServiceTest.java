@@ -16,7 +16,7 @@ public class CategoryServiceTest {
     @DisplayName("测试分类")
     @Test
     public void testForloadData(){
-       categoryMapper.selectParentCategory().forEach(System.out::println);
+       categoryMapper.selectAll().forEach(System.out::println);
     }
 
 }

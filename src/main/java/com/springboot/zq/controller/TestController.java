@@ -1,6 +1,5 @@
 package com.springboot.zq.controller;
 
-import com.springboot.zq.pojo.Category;
 import com.springboot.zq.pojo.User;
 import com.springboot.zq.servicce.CategoryService;
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 import java.util.UUID;
 
 @Slf4j
