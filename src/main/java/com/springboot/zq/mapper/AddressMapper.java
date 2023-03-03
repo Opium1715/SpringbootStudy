@@ -15,4 +15,5 @@ public interface AddressMapper {
     List<Address> selectAll();
 
     int updateByPrimaryKey(Address record);
+
 }

@@ -8,6 +8,7 @@
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="comment_context" jdbcType="LONGVARCHAR" property="commentContext" />
   </resultMap>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from comment
     where comment_id = #{commentId,jdbcType=INTEGER}
@@ -35,4 +36,11 @@
     select comment_id, comment_time, product_id, user_id, comment_context
     from comment
   </select>
+
+  <select id="selectCommentsByPid" parameterType="BaseResultMap">
+    select *
+    from comment
+    where product_id=#{pid}
+  </select>
+
 </mapper>
