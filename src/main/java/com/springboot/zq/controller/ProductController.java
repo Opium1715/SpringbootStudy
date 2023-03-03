@@ -18,11 +18,10 @@ public class ProductController {
     ProductService productService;
 
     @GetMapping("/product/{pid}")
-    public Map<String,List> displayProduct(@PathVariable("pid") Integer productId){
-
-       Product product = productService.getProduct(productId);
-        HashMap<String,List> map = new HashMap<>();
-
+    public Map<String,Object> displayProduct(@PathVariable("pid") Integer productId){
+        Product product = productService.getProduct(productId);
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("productData", product);
         return map;
     }
 }

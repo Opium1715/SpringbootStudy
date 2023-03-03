@@ -12,6 +12,6 @@ public class ProductServiceTest {
     @DisplayName("单个商品获取测试")
     @Test
     public void test(){
-        System.out.println(productService.getProduct(2).toString());
+        System.out.println(productService.getProduct(10).toString());
     }
 }

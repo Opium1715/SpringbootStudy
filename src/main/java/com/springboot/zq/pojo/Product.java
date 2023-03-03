@@ -18,18 +18,29 @@ public class Product {
 
     private Integer productStock;
 
+    private String productDetail;
+
     private Merchant merchant;
 
     private Category category;
 
-    private List<Comment> comment;
+    private List<Comment> comments;
 
-    public List<Comment> getComment() {
-        return comment;
+
+    public String getProductDetail() {
+        return productDetail;
     }
 
-    public void setComment(List<Comment> comment) {
-        this.comment = comment;
+    public void setProductDetail(String productDetail) {
+        this.productDetail = productDetail;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
     public Merchant getMerchant() {
