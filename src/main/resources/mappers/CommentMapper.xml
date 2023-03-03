@@ -37,7 +37,7 @@
     from comment
   </select>
 
-  <select id="selectCommentsByPid" parameterType="BaseResultMap">
+  <select id="selectCommentsByPid" resultMap="BaseResultMap">
     select *
     from comment
     where product_id=#{pid}
