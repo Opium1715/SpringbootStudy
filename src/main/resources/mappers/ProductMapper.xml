@@ -73,7 +73,7 @@
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select product_id, category_id, product_name, product_price, product_img, merc_id, 
-    product_stock
+    product_stock, product_detail
     from product
   </select>
 </mapper>
