@@ -3,11 +3,12 @@ package com.springboot.zq.pojo;
 import lombok.ToString;
 
 import java.math.BigDecimal;
+import java.util.List;
+
 @ToString
 public class Product {
     private Integer productId;
 
-    private Integer categoryId;
 
     private String productName;
 
@@ -15,15 +16,37 @@ public class Product {
 
     private String productImg;
 
-    private Integer mercId;
-
     private Integer productStock;
 
     private Merchant merchant;
 
     private Category category;
 
+    private List<Comment> comment;
 
+    public List<Comment> getComment() {
+        return comment;
+    }
+
+    public void setComment(List<Comment> comment) {
+        this.comment = comment;
+    }
+
+    public Merchant getMerchant() {
+        return merchant;
+    }
+
+    public void setMerchant(Merchant merchant) {
+        this.merchant = merchant;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public Integer getProductId() {
         return productId;
@@ -31,14 +54,6 @@ public class Product {
 
     public void setProductId(Integer productId) {
         this.productId = productId;
-    }
-
-    public Integer getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
     }
 
     public String getProductName() {
@@ -63,14 +78,6 @@ public class Product {
 
     public void setProductImg(String productImg) {
         this.productImg = productImg == null ? null : productImg.trim();
-    }
-
-    public Integer getMercId() {
-        return mercId;
-    }
-
-    public void setMercId(Integer mercId) {
-        this.mercId = mercId;
     }
 
     public Integer getProductStock() {

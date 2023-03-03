@@ -3,12 +3,38 @@
 <mapper namespace="com.springboot.zq.mapper.ProductMapper">
   <resultMap id="BaseResultMap" type="com.springboot.zq.pojo.Product">
     <id column="product_id" jdbcType="INTEGER" property="productId" />
-    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
     <result column="product_name" jdbcType="VARCHAR" property="productName" />
     <result column="product_price" jdbcType="DECIMAL" property="productPrice" />
     <result column="product_img" jdbcType="VARCHAR" property="productImg" />
-    <result column="merc_id" jdbcType="INTEGER" property="mercId" />
     <result column="product_stock" jdbcType="INTEGER" property="productStock" />
+  </resultMap>
+  <resultMap id="selectResultMap" type="com.springboot.zq.pojo.Product">
+    <id column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="product_price" jdbcType="DECIMAL" property="productPrice" />
+    <result column="product_img" jdbcType="VARCHAR" property="productImg" />
+    <result column="product_stock" jdbcType="INTEGER" property="productStock" />
+    <association property="merchant" javaType="com.springboot.zq.pojo.Merchant">
+      <result column="merc_name" jdbcType="VARCHAR" property="mercName"/>
+      <result column="merc_address" jdbcType="VARCHAR" property="mercAddress"/>
+      <result column="merc_email" jdbcType="VARCHAR" property="mercEmail"/>
+      <result column="merc_phone" jdbcType="VARCHAR" property="mercPhone"/>
+      <result column="merc_proxy" jdbcType="VARCHAR" property="mercProxy"/>
+      <result column="merc_img" jdbcType="VARCHAR" property="mercImg"/>
+    </association>
+    <association property="category" javaType="com.springboot.zq.pojo.Category">
+      <id column="category_id" jdbcType="INTEGER" property="categoryId"/>
+      <result column="category_name" jdbcType="VARCHAR" property="categoryName"/>
+      <result column="parent_id" jdbcType="INTEGER" property="parentId"/>
+    </association>
+   <!-- <association property="comment" javaType="com.springboot.zq.pojo.Comment">
+      <result column="comment_id" jdbcType="INTEGER" property="commentId"/>
+      <result column="comment_context" jdbcType="VARCHAR" property="commentContext"/>
+    </association>-->
+    <collection property="comment" column="comment_id" ofType="com.springboot.zq.pojo.Comment">
+      <id column="comment_id" jdbcType="INTEGER" property="commentId"/>
+      <result column="comment_context" jdbcType="VARCHAR" property="commentContext"/>
+    </collection>
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from product
@@ -32,11 +58,16 @@
       product_stock = #{productStock,jdbcType=INTEGER}
     where product_id = #{productId,jdbcType=INTEGER}
   </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select product_id, category_id, product_name, product_price, product_img, merc_id, 
-    product_stock
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="selectResultMap">
+    select product.product_id, product.category_id, product_name, product_price, product_img, product.merc_id,
+    product_stock, m.merc_name, m.merc_phone, m.merc_proxy,m.merc_address, m.merc_email, m.merc_img,
+    c.category_id,c.category_name,c.parent_id,
+    c2.comment_id,c2.comment_context
     from product
-    where product_id = #{productId,jdbcType=INTEGER}
+        left join category c on c.category_id = product.category_id
+        left join merchant m on m.merc_id = product.merc_id
+        left join comment c2 on product.product_id = c2.product_id
+    where product.product_id = #{productId,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select product_id, category_id, product_name, product_price, product_img, merc_id, 
