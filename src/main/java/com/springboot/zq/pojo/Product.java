@@ -24,7 +24,7 @@ public class Product {
 
     private Category category;
 
-    private List<Comment> comments;
+
 
 
     public String getProductDetail() {
@@ -35,13 +35,6 @@ public class Product {
         this.productDetail = productDetail;
     }
 
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
 
     public Merchant getMerchant() {
         return merchant;

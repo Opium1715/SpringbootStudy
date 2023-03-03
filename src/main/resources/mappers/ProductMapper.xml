@@ -33,11 +33,11 @@
       <result column="comment_id" jdbcType="INTEGER" property="commentId"/>
       <result column="comment_context" jdbcType="VARCHAR" property="commentContext"/>
     </association>-->
-    <collection property="comments" column="comment_id" ofType="com.springboot.zq.pojo.Comment">
+   <!-- <collection property="comments" column="comment_id" ofType="com.springboot.zq.pojo.Comment">
       <id column="comment_id" jdbcType="INTEGER" property="commentId"/>
       <result column="comment_context" jdbcType="VARCHAR" property="commentContext"/>
       <result column="comment_time" jdbcType="DATE" property="commentTime"/>
-    </collection>
+    </collection>-->
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from product
@@ -65,12 +65,10 @@
     select product.product_id, product.category_id, product_name, product_price, product_img, product.merc_id,
     product_stock, product_detail,
     m.merc_name, m.merc_phone, m.merc_proxy,m.merc_address, m.merc_email, m.merc_img,
-    c.category_id,c.category_name,c.parent_id,
-    c2.comment_id,c2.comment_context,c2.comment_time
+    c.category_id,c.category_name,c.parent_id
     from product
         left join category c on c.category_id = product.category_id
         left join merchant m on m.merc_id = product.merc_id
-        left join comment c2 on product.product_id = c2.product_id
     where product.product_id = #{productId,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">

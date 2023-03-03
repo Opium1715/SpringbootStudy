@@ -39,6 +39,10 @@ spring:
 #          配置防火墙属性，例如 禁止插入
 #          config:
 #            insert-allow: false
+  jackson:
+    time-zone: Asia/Shanghai
+    serialization:
+      write-dates-as-timestamps: true
 
 
 mybatis:
