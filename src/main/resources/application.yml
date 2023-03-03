@@ -43,6 +43,7 @@ spring:
     time-zone: Asia/Shanghai
     serialization:
       write-dates-as-timestamps: true
+    default-property-inclusion: non_null
 
 
 mybatis:

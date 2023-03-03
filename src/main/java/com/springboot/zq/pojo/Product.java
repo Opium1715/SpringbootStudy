@@ -1,10 +1,14 @@
 package com.springboot.zq.pojo;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.util.List;
-
+import java.util.Map;
+@Getter
+@Setter
 @ToString
 public class Product {
     private Integer productId;
@@ -36,13 +40,7 @@ public class Product {
     }
 
 
-    public Merchant getMerchant() {
-        return merchant;
-    }
 
-    public void setMerchant(Merchant merchant) {
-        this.merchant = merchant;
-    }
 
     public Category getCategory() {
         return category;
