@@ -41,6 +41,6 @@
         <!-- domainObjectName属性指定生成出来的实体类的类名 -->
         <!--        <table tableName="book" domainObjectName="Book"/>-->
         <!--<table tableName="%"/>-->
-        <table tableName="comment" domainObjectName="Comment"/>
+        <table tableName="user" domainObjectName="User"/>
     </context>
 </generatorConfiguration>

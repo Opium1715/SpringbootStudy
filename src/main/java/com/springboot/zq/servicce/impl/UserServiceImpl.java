@@ -1,7 +1,5 @@
 package com.springboot.zq.servicce.impl;
 
-import com.springboot.zq.mapper.UserMapper;
-import com.springboot.zq.pojo.User;
 import com.springboot.zq.servicce.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
