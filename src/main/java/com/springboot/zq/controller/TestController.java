@@ -1,5 +1,6 @@
 package com.springboot.zq.controller;
 
+import com.springboot.zq.pojo.User;
 import com.springboot.zq.servicce.CategoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -40,4 +40,10 @@
     select user_id, user_name, user_password, user_email, user_phone
     from user
   </select>
+
+  <select id="selectByUserName" resultMap="BaseResultMap">
+    select user_password
+    from user
+    where user_name = #{userName}
+  </select>
 </mapper>

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8"/>
 <title>登录</title>
@@ -120,14 +120,14 @@ $(document).ready(function(){
   <img src="images/form_bg.jpg"/>
  </div>
  <div class="rt_form">
-  <form id="login" action="" method="post">
+  <form id="login" th:action="@{/login}" method="post">
   <h2>会员登录</h2>
   <ul>
    <li class="user_icon">
-    <input type="text" name="username" id="username" class="textbox" placeholder="账号"/>
+    <input type="text" name="userName" id="username" class="textbox" placeholder="账号"/>
    </li>
    <li class="user_pwd">
-    <input type="password" name ="password" id="password" class="textbox" placeholder="密码"/>
+    <input type="password" name ="userPassword" id="password" class="textbox" placeholder="密码"/>
    </li>
    <li class="link_li">
     <a href="register.html" title="注册新用户" class="fl">注册新用户</a>
