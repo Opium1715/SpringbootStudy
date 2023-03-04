@@ -1,5 +1,6 @@
 package com.springboot.zq.controller;
 
+import com.springboot.zq.pojo.User;
 import com.springboot.zq.servicce.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,6 @@ public class LoginController {
         return "login";
     }
 
-
     @PostMapping("/login")
     public ModelAndView login(User user, HttpServletRequest request){
         if (userService.judgeUser(user)){
@@ -36,18 +36,9 @@ public class LoginController {
         return new ModelAndView("redirect:index");
     }
 
-
-
-
-
-    /*@GetMapping("/index")
-    public String index(HttpServletRequest request){
-        if (request.getSession().getAttribute("User")!=null){
-            return "index";
-        }
-        else {
-            return "redirect:login";
-        }
-    }*/
-//
+    @PostMapping("/register")
+    public String register(User user) throws Exception {
+        userService.registerUser(user);
+        return "redirect:login";
+    }
 }
