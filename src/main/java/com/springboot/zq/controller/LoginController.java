@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -38,7 +40,7 @@ public class LoginController {
     }
 
     @PostMapping("/register")
-    public String register(User user) throws Exception {
+    public String register(@RequestBody User user) throws Exception {
         userService.registerUser(user);
         return "redirect:login";
     }
@@ -47,17 +49,9 @@ public class LoginController {
         return "index";
     }
 
+    @GetMapping("/register")
+    public String DisplayRegister(){
+        return "register";
+    }
 
-
-
-    /*@GetMapping("/index")
-    public String index(HttpServletRequest request){
-        if (request.getSession().getAttribute("User")!=null){
-            return "index";
-        }
-        else {
-            return "redirect:login";
-        }
-    }*/
-//
 }

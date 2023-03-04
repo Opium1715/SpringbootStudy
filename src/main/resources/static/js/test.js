@@ -151,25 +151,26 @@ $(function () {
         if(flagUser && flagPwd && flagCpwd && flagAllow){
             
     let pasame={
-        username : $user_name.val(),
-        password : $pwd.val()
+        userName : $user_name.val(),
+        userPassword : $pwd.val()
     }
         console.log(pasame);
         pasame=JSON.stringify(pasame);
 
         // ajax请求
         $.ajax({
-            url:"",
+            url:"http://localhost:8080/register",
             type:'POST',
-            // data:pasame,
-            contentType:'json',
+            data:pasame,
+            dataType:"json",
+            contentType:'application/json',
             sussess:function(res){
                 console.log(res);
                 if(res.code===200){
-                    alert('登录成功')
-                    location.href="./index.html"
+                    alert('注册成功！')
+                    /*location.href="./index.html"*/
                 }else{
-                    alert(res.msg);
+                    alert(res.show);
                 }
             }
         })
