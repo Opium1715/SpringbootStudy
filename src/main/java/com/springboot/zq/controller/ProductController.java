@@ -22,6 +22,16 @@ public class ProductController {
     ProductService productService;
     @Autowired
     CommentService commentService;
+
+    /**
+     * @methodname displayProduct
+     *
+     * @param productId
+     * @return java.util.Map<java.lang.String, java.lang.Object>
+     * @author QiZhang
+     * @Description 商品详情页中关于商品及商家的基本信息json接口
+     * @create 2023/3/4
+     **/
     @ResponseBody
     @GetMapping("/{pid}")
     public Map<String,Object> displayProduct(@PathVariable("pid") Integer productId){
@@ -30,6 +40,17 @@ public class ProductController {
         map.put("productData", product);
         return map;
     }
+
+    /**
+     * @methodname displayComment
+     *
+     * @param productId
+     * @param pageNo
+     * @return java.util.Map<java.lang.String, java.lang.Object>
+     * @author QiZhang
+     * @Description 商品详情页中查询商品评论分页json接口
+     * @create 2023/3/4
+     **/
     @ResponseBody
     @GetMapping("/comment/{pid}/{pageNo}")
     public Map<String,Object> displayComment(@PathVariable("pid") Integer productId,@PathVariable("pageNo")
@@ -39,6 +60,15 @@ public class ProductController {
         map.put("comments",comments);
         return map;
     }
+
+    /**
+     * pageProduct
+     * [pageNo]
+     * @return java.util.Map<java.lang.String, java.lang.Object>
+     * @author QiZhang
+     * @description 商品浏览页分页获取json接口
+     * @create 2023/3/4
+     **/
     @ResponseBody
     @GetMapping("/page/{pageNo}")
     public Map<String,Object> pageProduct(@PathVariable Integer pageNo){
