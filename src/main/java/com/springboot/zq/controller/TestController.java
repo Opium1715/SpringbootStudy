@@ -29,10 +29,6 @@ public class TestController {
         return new ModelAndView("test","user",user);
     }
 
-    @GetMapping("/form")
-    public ModelAndView form(){
-        return new ModelAndView("form/form_layouts");
-    }
 
     @PostMapping("/form")
     public ModelAndView upload(MultipartFile image, String email, String password, MultipartFile[] photos, HttpSession session) throws IOException {
