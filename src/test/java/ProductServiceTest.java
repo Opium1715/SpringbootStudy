@@ -25,7 +25,7 @@ public class ProductServiceTest {
     @DisplayName("评论读取")
     @Test
     public void testComment(){
-        commentService.getCommentsByPid(2).forEach(System.out::println);
+        commentService.getCommentsByPid(2, 1).getList().forEach(System.out::println);
 
         System.out.println("----------------------------------------");
 

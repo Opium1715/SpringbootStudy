@@ -32,6 +32,7 @@ public class ProductController {
      * @Description 商品详情页中关于商品及商家的基本信息json接口
      * @create 2023/3/4
      **/
+
     @ResponseBody
     @GetMapping("/{pid}")
     public Map<String,Object> displayProduct(@PathVariable("pid") Integer productId){
@@ -51,11 +52,12 @@ public class ProductController {
      * @Description 商品详情页中查询商品评论分页json接口
      * @create 2023/3/4
      **/
+
     @ResponseBody
     @GetMapping("/comment/{pid}/{pageNo}")
     public Map<String,Object> displayComment(@PathVariable("pid") Integer productId,@PathVariable("pageNo")
     @RequestParam(defaultValue = "1") Integer pageNo){
-        List<Comment> comments = commentService.getCommentsByPid(productId);
+        PageInfo<Comment> comments = commentService.getCommentsByPid(productId,pageNo);
         HashMap<String,Object> map = new HashMap<>();
         map.put("comments",comments);
         return map;
@@ -77,6 +79,5 @@ public class ProductController {
         map.put("productList",pageInfo);
         return map;
     }
-
 
 }

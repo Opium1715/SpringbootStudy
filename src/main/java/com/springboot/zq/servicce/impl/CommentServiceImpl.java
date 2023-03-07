@@ -1,5 +1,7 @@
 package com.springboot.zq.servicce.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.springboot.zq.mapper.CommentMapper;
 import com.springboot.zq.pojo.Comment;
 import com.springboot.zq.servicce.CommentService;
@@ -16,7 +18,9 @@ public class CommentServiceImpl implements CommentService {
     public CommentMapper comment;
 
     @Override
-    public List<Comment> getCommentsByPid(Integer pid) {
-        return comment.selectCommentsByPid(pid);
+    public PageInfo<Comment> getCommentsByPid(Integer pid, Integer pageNo) {
+        PageHelper.startPage(pageNo,6);
+        List<Comment> commentList = comment.selectCommentsByPid(pid);
+        return new PageInfo<Comment>(commentList);
     }
 }
